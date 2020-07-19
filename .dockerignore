@@ -1,0 +1,6 @@
+venv/
+README.md
+spec-file.txt
+spec-file-explicit.txt
+bitcoin.csv
+predict.py
