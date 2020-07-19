@@ -40,18 +40,18 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 ~~~~
 \
 Q: Is the neural network architecture correct? / Is a different model appropriate? \
-A: Because Bitcoin, like regular stock-market data, is time-series data, a more appropriate network architecture for 
+A: Because Bitcoin, like regular stock-market data, is time-series data, an appropriate network architecture for 
 forecasting the price of Bitcoin at time t+1 are recurrent neural networks. In particular, RNNs with LSTM units to assist with vanishing gradients. GRUs could also be used if a speed up in training time is desired, less it drastically effect model correctness. (I have made these changes in the Jupyter Notebook)\
 \
-Q: Does accuracy make sense in this context? \ 
+Q: Does accuracy make sense in this context?  
 A: No. This problem is a regression problem, not a classification one. So accuracy does not make sense. Traditional regression statistics like MSE and RMSE make sense for validation metrics here. \
 \
 Q: Do we have the right feature set? More features? Less features? Better features? \
-A: I think the better feature set is to take the data as is and split it into multiple time series with 59 observations and 1 price_high observation as the target variable.I had to change from 60 to 59 because the incoming request has data for time 0 with no price_high. With the new model architecture, we do not need that tme 0 row. \
+A: I think the better feature set is to take the data as is and split it into multiple time series with 59 observations and 1 price_high observation as the target variable.I had to change from 60 to 59 because the incoming request has data for time 0 with no price_high. With the new model architecture, we do not need that time 0 row.\
 \
-Q:Is there any scaling or preprocessing we're missing?
-Scaling is often a good idea. Here, because the distance between our features is quite high, using a scalar such as MinMax wil allow the network to better represent relationships between our features. \ 
+Q:Is there any scaling or preprocessing we're missing? \
+A:Scaling is often a good idea. Here, because the distance between our features is quite high, using a scalar such as MinMax wil allow the network to better represent relationships between our features.  
 \
-Q: What version is the API on and how do we know? Is this the same as the model version? Do we need both? \ 
+Q: What version is the API on and how do we know? Is this the same as the model version? Do we need both?\
 A: We can specify versions as an environment variables in the application. We can also add an endpoint to retrieve them. The application and model versions should be independent. An increment to the application version should represent new features or bug fixes, an increment to the model should be from a new model being used by the application. These should be de-coupled. 
  
