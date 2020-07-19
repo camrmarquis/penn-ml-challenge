@@ -3,13 +3,12 @@ from fastapi.logger import logger
 from pydantic import BaseModel
 import numpy as np
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from tensorflow.keras.models import load_model
 from typing import Dict
 import uvicorn
 from pickle import load
 import pandas as pd
-
 
 # Set the log level to what is configured in the environment. Default to 'DEBUG'
 logger.setLevel(os.getenv('LOG_LEVEL', 'DEBUG'))
