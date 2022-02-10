@@ -82,7 +82,7 @@ sklearn==0.0
 starlette==0.13.4
 tensorboard==1.13.1
 tensorboard-plugin-wit==1.7.0
-tensorflow==2.2.0
+tensorflow==2.5.3
 tensorflow-estimator==1.13.0
 termcolor==1.1.0
 terminado==0.8.3
